@@ -1,6 +1,6 @@
 PREFIX = $(shell pwd)
 url_buildroot = https://github.com/buildroot/buildroot.git
-dir_external = $(PREFIX)/external
+dir_external = $(PREFIX)
 dir_buildroot = $(PREFIX)/buildroot
 dir_output = $(dir_buildroot)/output
 release_tag = 2020.05
@@ -39,4 +39,4 @@ flash_bootloader:
 		-c "reset run" -c shutdown
 
 clean:
-	rm -rf $(dir_output)
+	rm -rf $(dir_buildroot)
