@@ -5,7 +5,7 @@
 ################################################################################
 
 HELLO_VERSION = 1.0
-HELLO_SITE = ../STM32F769I-disco_Buildroot/package/hello/src
+HELLO_SITE = ./package/hello/src
 HELLO_SITE_METHOD = local
 HELLO_DEPENDENCIES = 
 

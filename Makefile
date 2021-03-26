@@ -1,12 +1,13 @@
 PREFIX = $(shell pwd)
 url_buildroot = https://github.com/buildroot/buildroot.git
-dir_external = $(PREFIX)
+dir_external = $(PREFIX)/external
 dir_buildroot = $(PREFIX)/buildroot
 dir_output = $(dir_buildroot)/output
 release_tag = 2020.05
 tftp_dir = $(PREFIX)/output
 
 bootstrap:
+	mkdir -p external
 	@echo "Downloading buildroot to $(PREFIX)"
 	git clone --depth 10 $(url_buildroot) $(dir_buildroot)
 	cd $(dir_buildroot) && git fetch --tags && git reset --hard $(release_tag)
