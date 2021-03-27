@@ -14,14 +14,18 @@ bootstrap:
 	make BR2_EXTERNAL=$(dir_external) custom_stm32f769_defconfig -C $(dir_buildroot)
 	#cp local.mk $(dir_buildroot)
 
-linux-rebuild:
+menuconfig:
+	make BR2_EXTERNAL=$(dir_external) custom_stm32f769_defconfig -C $(dir_buildroot) menuconfig
+	make savedefconfig BR2_DEFCONFIG=$(dir_external)/configs/custom_stm32f769_defconfig -C $(dir_buildroot)
+
+linux_rebuild:
 	make linux-rebuild -C $(dir_buildroot)
 	mkdir -p $(tftp_dir)
 	cp $(dir_buildroot)/output/images/zImage $(tftp_dir)
 	cp $(dir_buildroot)/output/build/linux-5.6.15/arch/arm/boot/dts/stm32f769-disco.dtb $(tftp_dir)
 
 build:
-	make -C $(dir_buildroot)
+	make BR2_DEFCONFIG=$(dir_external)/configs/custom_stm32f769_defconfig -C $(dir_buildroot)
 
 save_all:
 	make update-defconfig -C $(dir_buildroot)
