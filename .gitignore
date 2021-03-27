@@ -1,0 +1,6 @@
+buildroot
+.vscode-ctags
+output
+dl
+host
+toolchain
