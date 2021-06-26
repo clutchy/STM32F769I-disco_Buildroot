@@ -25,8 +25,9 @@ linux_menuconfig:
 linux_rebuild:
 	make linux-reconfigure -C $(dir_buildroot)
 	mkdir -p $(out_dir)
-	cp $(dir_buildroot)/output/images/zImage $(out_dir)
-	cp $(dir_external)/linux-5.6.15/arch/arm/boot/dts/stm32f769-disco.dtb $(out_dir)
+	cp $(dir_buildroot)/output/images/zImage $(out_dir)/
+	cp $(dir_buildroot)/output/images/rootfs.ext2 $(out_dir)/
+	cp $(dir_external)/linux-5.6.15/arch/arm/boot/dts/stm32f769-disco.dtb $(out_dir)/
 
 uboot_rebuild:
 	make uboot-reconfigure -C $(dir_buildroot)
