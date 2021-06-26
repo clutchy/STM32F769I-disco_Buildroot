@@ -54,7 +54,7 @@ index 45343d2323..07ef11f63c 100644
 +			"spiboot=sf probe && sf read ${fdt_addr_r} 0 4000 && sf read ${kernel_addr_r} 10000 200000 && bootz ${kernel_addr_r} - ${fdt_addr_r}\0" \
 +			"mmcboot=mmc dev 0 && fatload mmc 0 ${fdt_addr_r} /${dtb_file} && fatload mmc 0 ${kernel_addr_r} /${kernel_file} && icache off && bootz ${kernel_addr_r} - ${fdt_addr_r}\0" \
 +			"updatespi=sf probe && tftp ${fdt_addr_r} ${dtb_file} && sf erase 0 10000 && sf write ${fdt_addr_r} 0 ${filesize} && tftp ${kernel_addr_r} ${kernel_file} && sf erase 10000 200000 && sf write ${kernel_addr_r} 10000 ${filesize}\0" \
-+			"conditionalboot=if test \"${button}\" = \"LOW\"; then run netboot; fi; run mmcboot\0" \
++			"conditionalboot=if test \"${button}\" = \"LOW\"; then run mmcboot; fi; run netboot\0" \
  			BOOTENV
  
  /*
