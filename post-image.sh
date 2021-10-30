@@ -48,6 +48,9 @@ if [ $(fsck -N "${DEV_PATH}1" | tail -n 1 | awk '{print $5}' | awk -F'.' '{print
     fi
 
     echo "Formating $DEV_PATH"
+    dd if=/dev/zero of=$DEV_PATH bs=512 count=1 status=progress
+
+    echo "Creating new partitions"
     parted "${DEV_PATH}" --script -- mklabel msdos
     parted "${DEV_PATH}" --script -- mkpart primary fat32 1MiB 100MiB
     parted "${DEV_PATH}" --script -- mkpart primary ext2 100MiB 100%
