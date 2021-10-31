@@ -1,0 +1,21 @@
+{
+    "search.useIgnoreFiles": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/buildroot": true,
+        "**/dl": true,
+        "**/host": true,
+        "**/external": true,
+        "**/toolchain": true,
+        "!buildroot/output/build/uboot-2020.04": true
+    },
+    "files.watcherExclude": {
+        "**/.git": true,
+        "**/buildroot": true,
+        "**/dl": true,
+        "**/host": true,
+        "**/external": true,
+        "**/toolchain": true,
+        "**/linux*": true,
+      }
+}
