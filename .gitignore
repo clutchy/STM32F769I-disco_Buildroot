@@ -3,6 +3,5 @@ buildroot
 output
 dl
 host
-toolchain
 external
 linux*
