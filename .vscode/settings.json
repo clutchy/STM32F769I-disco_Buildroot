@@ -17,5 +17,6 @@
         "**/external": true,
         "**/toolchain": true,
         "**/linux*": true,
-      }
+    },
+    "cmake.configureOnOpen": false
 }
