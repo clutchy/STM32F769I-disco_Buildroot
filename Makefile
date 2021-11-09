@@ -27,7 +27,7 @@ linux_rebuild:
 	mkdir -p $(out_dir)
 	cp $(dir_buildroot)/output/images/zImage $(out_dir)/
 	cp $(dir_buildroot)/output/images/rootfs.ext2 $(out_dir)/
-	cp $(dir_external)/linux-5.6.15/arch/arm/boot/dts/stm32f769-disco.dtb $(out_dir)/
+	cp $(dir_external)/buildroot/output/build/linux-custom/arch/arm/boot/dts/stm32f769-disco.dtb $(out_dir)/
 
 uboot_rebuild:
 	make uboot-reconfigure -C $(dir_buildroot)
