@@ -36,7 +36,7 @@ build:
 	make BR2_DEFCONFIG=$(dir_external)/configs/custom_stm32f769_defconfig -C $(dir_buildroot)
 	cp $(dir_buildroot)/output/images/zImage $(out_dir)/
 	cp $(dir_buildroot)/output/images/rootfs.ext2 $(out_dir)/
-	cp $(dir_external)/linux-5.6.15/arch/arm/boot/dts/stm32f769-disco.dtb $(out_dir)/
+	cp $(dir_external)/buildroot/output/build/linux-custom/arch/arm/boot/dts/stm32f769-disco.dtb $(out_dir)/
 
 save_all:
 	make update-defconfig -C $(dir_buildroot)
