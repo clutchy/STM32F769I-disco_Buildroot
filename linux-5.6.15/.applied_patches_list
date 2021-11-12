@@ -1,0 +1,6 @@
+/home/zjerina/projects/STM32F769I-disco_Buildroot/stm32f769i-disco/patches/linux/5.6.15/0001-ethernet-fixes.patch
+/home/zjerina/projects/STM32F769I-disco_Buildroot/stm32f769i-disco/patches/linux/5.6.15/0002-enable-video-driver-now-dev-fb0-is-available.patch
+/home/zjerina/projects/STM32F769I-disco_Buildroot/stm32f769i-disco/patches/linux/5.6.15/0003-enable-dfsdm-adc.patch
+/home/zjerina/projects/STM32F769I-disco_Buildroot/stm32f769i-disco/patches/linux/5.6.15/0004-shared-dma-resizing.patch
+/home/zjerina/projects/STM32F769I-disco_Buildroot/stm32f769i-disco/patches/linux/5.6.15/0005-Touch-input-config.patch
+/home/zjerina/projects/STM32F769I-disco_Buildroot/stm32f769i-disco/patches/linux/5.6.15/0006-Add-qspi-flash-TODO.patch
