@@ -1,7 +1,0 @@
-config BR2_PACKAGE_HELLO
-	bool "hello"
-	depends on BR2_PACKAGE_SDL
-	help
-	  Hello world package.
-
-	  http://example.com
