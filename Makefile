@@ -11,8 +11,6 @@ bootstrap:
 	@echo "Downloading buildroot to $(PREFIX)"
 	git clone --depth 10 $(url_buildroot) $(dir_buildroot)
 	cd $(dir_buildroot) && git fetch --tags && git reset --hard $(release_tag)
-	make BR2_EXTERNAL=$(dir_external) custom_stm32f769_defconfig -C $(dir_buildroot)
-	#cp local.mk $(dir_buildroot)
 
 menuconfig:
 	make BR2_EXTERNAL=$(dir_external) custom_stm32f769_defconfig -C $(dir_buildroot) menuconfig
@@ -33,10 +31,15 @@ uboot_rebuild:
 	make uboot-reconfigure -C $(dir_buildroot)
 
 build:
-	make BR2_DEFCONFIG=$(dir_external)/configs/custom_stm32f769_defconfig -C $(dir_buildroot)
+ifeq ("$(wildcard $(dir_buildroot))","")
+	make bootstrap
+endif
+
+	make BR2_EXTERNAL=$(dir_external) custom_stm32f769_defconfig -C $(dir_buildroot)
+	make -C $(dir_buildroot)
 	cp $(dir_buildroot)/output/images/zImage $(out_dir)/
 	cp $(dir_buildroot)/output/images/rootfs.ext2 $(out_dir)/
-	cp $(dir_external)/buildroot/output/build/linux-custom/arch/arm/boot/dts/stm32f769-disco.dtb $(out_dir)/
+	cp $(dir_buildroot)/output/build/linux-custom/arch/arm/boot/dts/stm32f769-disco.dtb $(out_dir)/
 
 save_all:
 	make update-defconfig -C $(dir_buildroot)
