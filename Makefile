@@ -6,6 +6,8 @@ dir_output = $(dir_buildroot)/output
 release_tag = 2020.05
 out_dir = $(PREFIX)/output
 
+.PHONY: bootstrap menuconfig linux_menuconfig linux_rebuild uboot_rebuild build save_all flash_bootloader clean
+
 bootstrap:
 	mkdir -p external
 	@echo "Downloading buildroot to $(PREFIX)"
