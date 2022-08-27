@@ -50,10 +50,10 @@ save_all:
 	make uboot-update-defconfig -C $(dir_buildroot)
 
 flash_bootloader:
-	cd $(dir_output)/build/host-openocd-0.10.0/tcl && ../../../host/usr/bin/openocd \
-		-f board/stm32f7discovery.cfg \
-		-c "program ../../../images/u-boot-spl.bin 0x08000000" \
-		-c "program ../../../images/u-boot.bin 0x08008000" \
+	$(dir_external)/host/bin/openocd \
+		-f $(dir_output)/build/host-openocd-0.10.0/tcl/board/stm32f7discovery.cfg \
+		-c "program $(dir_output)/images/u-boot-spl.bin 0x08000000" \
+		-c "program $(dir_output)/images/u-boot.bin 0x08008000" \
 		-c "reset run" -c shutdown
 
 clean:
