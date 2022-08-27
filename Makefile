@@ -43,14 +43,6 @@ endif
 	cp $(dir_buildroot)/output/images/rootfs.ext2 $(out_dir)/
 	cp $(dir_buildroot)/output/build/linux-custom/arch/arm/boot/dts/stm32f769-disco.dtb $(out_dir)/
 
-save_all:
-	make update-defconfig -C $(dir_buildroot)
-	make linux-update-defconfig -C $(dir_buildroot)
-	make busybox-update-config -C $(dir_buildroot)
-	make uclibc-update-config -C $(dir_buildroot)
-	make barebox-update-defconfig -C $(dir_buildroot)
-	make uboot-update-defconfig -C $(dir_buildroot)
-
 flash_bootloader:
 	$(dir_external)/host/bin/openocd \
 		-f $(dir_output)/build/host-openocd-0.10.0/tcl/board/stm32f7discovery.cfg \
