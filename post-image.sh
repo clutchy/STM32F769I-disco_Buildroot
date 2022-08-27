@@ -70,11 +70,11 @@ mount "${DEV_PATH}1" "$MOUNT_PATH1"
 
 echo "Copying files to FAT partition"
 mkdir -p "$MOUNT_PATH1/stm32f769/"
-cp output/stm32f769-disco.dtb "$MOUNT_PATH1/stm32f769/"
-cp output/zImage "$MOUNT_PATH1/stm32f769/"
+cp buildroot/output/build/linux-custom/arch/arm/boot/dts/stm32f769-disco.dtb "$MOUNT_PATH1/stm32f769/"
+cp buildroot/output/images/zImage "$MOUNT_PATH1/stm32f769/"
 
 echo "Copying rootfs to ext2 partition"
-dd if=output/rootfs.ext2 of="${DEV_PATH}2" status=progress
+dd if=buildroot/output/images/rootfs.ext2 of="${DEV_PATH}2" status=progress
 
 umount "$MOUNT_PATH1"
 sync
